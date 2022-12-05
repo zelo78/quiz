@@ -1,0 +1,16 @@
+version: "3.2"
+services:
+
+  quiz_app:
+    build:
+      context: ./src
+    container_name: quiz_app
+    image: quiz_app
+    restart: always
+    command: ["./start.sh"]
+    env_file:
+      - .env
+    volumes:
+      - ./src:/app
+    ports:
+      - "8000:8000"
